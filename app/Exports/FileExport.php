@@ -10,11 +10,20 @@ class FileExport implements FromCollection, WithHeadings
     /**
     * @return \Illuminate\Support\Collection
     */
+
+    private $batch;
+
+    public function __construct($batch)
+    {
+        $this->batch = $batch;
+    }
+
+
     public function collection()
     {
         // dd(User::all());
         $finaldata = [];
-        $data = demotable::select("Txhash","Blockno","UnixTimestamp","DateTime","From_Address","To_Address","ContractAddress","Value_IN(BNB)","Value_OUT(BNB)","TokenAmount","TxnFee(BNB)","TokenName","TokenSymbol","TokenID","Method","Status")->get();
+        $data = demotable::where('batch', '=',  $this->batch)->select("Txhash","Blockno","UnixTimestamp","DateTime","From_Address","To_Address","ContractAddress","Value_IN(BNB)","Value_OUT(BNB)","TokenAmount","TxnFee(BNB)","TokenName","TokenSymbol","TokenID","Method","Status")->get();
 
         $finaldata = collect($data);
         return $finaldata;

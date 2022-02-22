@@ -16,6 +16,8 @@ $prefix = Request::route()->uri;
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {{-- toastr css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
     <title>Admin Panel</title>
 </head>
 
@@ -50,10 +52,20 @@ $prefix = Request::route()->uri;
                     View List
                 </a>
             </li>
+
+            <li>
+                <a class="nav-link text-white remdata" href="{{ route('rem-data') }}">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#speedometer2"></use>
+                    </svg>
+                    Remove Data
+                </a>
+            </li>
+
         </ul>
         <hr>
         <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+            <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle "
                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://unsplash.it/id/1022/150/150" alt="" width="32" height="32"
                     class="rounded-circle me-2">
@@ -106,5 +118,37 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 {{-- ionicons --}}
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelector('.remdata').addEventListener('click', (e) => {
+        
+  
+            e.preventDefault();
+            let link = e.target.href;
+  
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Once Deleted, data cannot be retrieved back.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = link;
+                    Swal.fire(
+                        'Deleted!',
+                        'Data has been deleted.',
+                        'success'
+                    )
+                }
+            }) // Swal ends 
+  
+        
+    });
+  
+  </script>
 
 </html>

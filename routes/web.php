@@ -39,6 +39,8 @@ Route::get('process-one/{batch}', [UserController::class, 'process_one'])->name(
 //process two is marking 'from address' as unique, format -> batch_loopNumber 
 Route::get('process-two/{batch}', [UserController::class, 'process_two'])->name('process-two');
 
+// process 3 is marking swap address
+Route::get('process-three/{batch}', [UserController::class, 'process_three'])->name('process-three');
 
 // for testing purposes
 Route::get('view-list', [UserController::class, 'view_list'])->name('view-list');
@@ -49,9 +51,12 @@ Route::get('layout', function () {
 });
 
 
-Route::get('logout', [UserController::class, 'Logout'])->name('logout');
+Route::get('signout', [UserController::class, 'Signout'])->name('signout');
 
 
 Route::get('view-individual/{batch}', [UserController::class, 'view_individual'])->name('view-individual');
 
 Route::get('export-individual/{batch}', [UserController::class, 'export_individual'])->name('export-individual');
+
+
+Route::get('rem-data', [UserController::class, 'Remdata'])->name('rem-data');

@@ -23,13 +23,18 @@
                             <td>{{ $row->updated_at }}</td>
                             <td> <a href="{{ route('process-one', ['batch' => $row->batch]) }}"
                                     {{-- class="btn btn-primary rounded {{ $row->process_flag != '0' ? 'd-none' : '' }}">Process --}}
-                                    class="btn btn-primary rounded">Process
-                                    One</a>
+                                    class="btn btn-primary rounded">P 
+                                    1</a>
 
                                 <a href="{{ route('process-two', ['batch' => $row->batch]) }}"
                                     {{-- class="btn btn-primary rounded {{ $row->process_flag != '1' ? 'd-none' : '' }}">Process --}}
-                                    class="btn btn-primary rounded">Process
-                                    Two</a>
+                                    class="btn btn-primary rounded">P 
+                                    2</a>
+
+                                <a href="{{ route('process-three', ['batch' => $row->batch]) }}"
+                                    {{-- class="btn btn-primary rounded {{ $row->process_flag != '1' ? 'd-none' : '' }}">Process --}}
+                                    class="btn btn-primary rounded">P
+                                    3</a>
 
                                 <a href="{{ route('view-individual', ['batch' => $row->batch]) }}"
                                     class="btn btn-primary rounded">View</a>

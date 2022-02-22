@@ -74,8 +74,7 @@ class demotable extends Model
         // third step is get these unique address finds in from_address then in to_address and marks some identifier
 
         foreach ($UniqueSimiliarAddr as $key => $value) {
-            echo $value;
-            echo "<br>";
+           
             // SELECT * FROM `demotables` WHERE From_Address = '0xba7f52292e16f39298344871bf4c0c7538e1a9b1' or To_Address= '0xba7f52292e16f39298344871bf4c0c7538e1a9b1';
 
             $data = $this->whereNull('Status')->where('From_Address', '=', $value->To_Address)->orWhere('To_Address', '=', $value->To_Address);
@@ -83,7 +82,7 @@ class demotable extends Model
             $data->whereNull('Status')->update(['Status' => $batch . '_' . $key + 1]);
 
             // $data = $this->whereNull('Status')->where('From_Address', '=', $value->To_Address)->where('To_Address', '=', $value->To_Address)->where('Txhash', '=', $value->Txhash)->update(['Status' => "Swap"]);
-            // echo $data;
+            
         }
         // dd();
         // $this->whereNull('Status')->where('To_Address', $value->From_Address)->where('batch', '=', $batch)->update(['Status' => $batch . '_' . $key + 1]);

@@ -50,9 +50,9 @@
             <div class="footer-container" style="position: absolute; left:0; bottom:0px; right:0">
                 <footer class="footer footer-bottom ">
 
-                    <div class="container footer-set">
+                    <div class="container footer-set ">
 
-                        <div class="row p-2" style="background-color: rgb(33, 37, 41); color: #fff">
+                        <div class="row p-2 " style="background-color: rgb(33, 37, 41); color: #fff">
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <p class="text-star"><a>Copyright © 2021-2022 </a><a href="#">Tridev</a>. All
                                     Rights
